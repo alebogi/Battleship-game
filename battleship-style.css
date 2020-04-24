@@ -1,0 +1,95 @@
+body{
+    height: 100%;
+}
+
+.bg{
+    background-image: url("battleship-assets/img/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+}
+
+.headerWelcome{
+    font-family: fantasy;
+    font-style: oblique;
+    margin-top: 100px;
+    text-align: center;
+    font-size: 100px;
+}
+
+.pWelcome{
+    text-align: center;
+}
+
+.playerWelcome{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.playerName{
+    text-align: right;
+    font-weight: bolder;
+    right: 20px;
+}
+
+.btn{
+    background-color: lightskyblue;
+    padding: 12px 28px;
+    border-radius: 12px;
+}
+
+.btn:hover{
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.ftr{
+    background-color: black;
+    color:white;
+    text-align: center;
+    position: fixed;
+    bottom : 0px;
+    left: 0px;
+}
+
+.headerSetup{
+    font-family: serif;
+    margin-top: 20px;
+    margin-bottom: 0px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+table.board{
+    border-width: 3px;
+    border-color: black;
+    border-style: solid;
+    border-collapse: collapse;
+    margin-left:auto; 
+    margin-right:auto;
+    background-color: mediumaquamarine;
+    
+}
+
+td{
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
+    border-collapse: collapse;
+    width: 50px;
+    height: 50px;
+}
+
+td:hover{
+    background-color: rgb(93, 190, 158);
+}
+
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Opera and Firefox */
+  }

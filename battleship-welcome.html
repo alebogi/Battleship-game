@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="battleship-assets/bootstrap/bootstrap.min.css">
+    <script src="battleship-script.js"></script>
+    <link rel="stylesheet" href="battleship-style.css">
+    <link rel="shortcut icon" href="battleship-assets/img/icon_wheel.ico">
+    <title> Battleship - online game </title>
+</head>
+<body class="bg">
+    <div class=container-fluid>
+        <h1 class="headerWelcome">BATTLESHIP</h1>
+        <br/>
+        <p class="pWelcome"> Welcome to free online game Battleship! <br/> Pleyers, please, enter your names: </p>
+        <form class="formWelcome" name="formW">
+            <div class="row playerWelcome">
+                <div class="col-sm-6 col-md-6 col-lg-6 playerName">
+                    Player1
+                </div>
+                <div class="col-sm-6 col-md-6 col-lg-6">
+                    <input type="text" name="player1name" required="yes" minlength="3" maxlength="15" placeholder="Name of player1..."> 
+                </div>
+            </div>
+            <div class="row playerWelcome">
+                <div class="col-sm-6 col-md-6 col-lg-6 playerName">
+                    Player2
+                </div>
+                <div class="col-sm-6 col-md-6 col-lg-6">
+                    <input type="text" name="player2name" required="yes" minlength="3" maxlength="15" placeholder="Name of player2..."> 
+                </div>
+            </div>
+            <div class="text-center">
+                <button type="button" class="btn" name="btnStartGame" onclick="startGame()" onmousedown="soundAlertGameBegin()">Start game!</button>
+            </div>
+        </form>
+        <div class="row">
+            <div class="col-sm-12 bottom ftr">
+                © Lexo 2020. All rights reserved by Aleksandra Bogicevic
+            </div>
+        </div>
+    </div>
+</body>
+</html>

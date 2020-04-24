@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="battleship-assets/bootstrap/bootstrap.min.css">
+    <script src="battleship-script.js"></script>
+    <link rel="stylesheet" href="battleship-style.css">
+    <link rel="shortcut icon" href="battleship-assets/img/icon_wheel.ico">
+    <title>Battleship - setup</title>
+</head>
+<body class="bg" onload="nameAlert(1)">
+    <div class="container-fluid">
+        <h1 class="headerSetup"> Board setup </h1>
+        <br/>
+        <h2 class="headerSetup" id="header2setup">Player 1</h2> 
+        <br/>
+        <div class="row">
+            <div class="col-sm-3">
+
+            </div>
+            <div class="col-sm-5">
+                <div class="text-center mainSetup">
+                    <table class="board text-center noselect">
+                        <tr>
+                            <th></th>
+                            <th>A</th>
+                            <th>B</th>
+                            <th>C</th>
+                            <th>D</th>
+                            <th>E</th>
+                            <th>F</th>
+                            <th>G</th>
+                            <th>H</th>
+                            <th>I</th>
+                            <th>J</th>
+                        </tr>
+                        <tr>
+                            <th>1</th>
+                            <td id="a1" class="00" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="b1" class="01" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="c1" class="02" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="d1" class="03" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="e1" class="04" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="f1" class="05" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="g1" class="06" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="h1" class="07" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="i1" class="08" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="j1" class="09" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                        </tr>
+                        <tr>
+                            <th>2</th>
+                            <td id="a2" class="10" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="b2" class="11" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="c2" class="12" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="d2" class="13" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="e2" class="14" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="f2" class="15" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="g2" class="16" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="h2" class="17" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="i2" class="18" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="j2" class="19" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                        </tr>
+                        <tr>
+                            <th>3</th>
+                            <td id="a3" class="20" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="b3" class="21" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="c3" class="22" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="d3" class="23" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="e3" class="24" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="f3" class="25" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="g3" class="26" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="h3" class="27" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="i3" class="28" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="j3" class="29" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                        </tr>
+                        <tr>
+                            <th>4</th>
+                            <td id="a4" class="30" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="b4" class="31" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="c4" class="32" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="d4" class="33" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="e4" class="34" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="f4" class="35" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="g4" class="36" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="h4" class="37" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="i4" class="38" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="j4" class="39" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                        </tr>
+                        <tr>
+                            <th>5</th>
+                            <td id="a5" class="40" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="b5" class="41" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="c5" class="42" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="d5" class="43" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="e5" class="44" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="f5" class="45" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="g5" class="46" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="h5" class="47" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="i5" class="48" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="j5" class="49" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                        </tr>
+                        <tr>
+                            <th>6</th>
+                            <td id="a6" class="50" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="b6" class="51" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="c6" class="52" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="d6" class="53" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="e6" class="54" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="f6" class="55" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="g6" class="56" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="h6" class="57" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="i6" class="58" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="j6" class="59" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                        </tr>
+                        <tr>
+                            <th>7</th>
+                            <td id="a7" class="60" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="b7" class="61" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="c7" class="62" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="d7" class="63" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="e7" class="64" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="f7" class="65" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="g7" class="66" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="h7" class="67" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="i7" class="68" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="j7" class="69" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                        </tr>
+                        <tr>
+                            <th>8</th>
+                            <td id="a8" class="70" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="b8" class="71" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="c8" class="72" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="d8" class="73" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="e8" class="74" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="f8" class="75" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="g8" class="76" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="h8" class="77" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="i8" class="78" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="j8" class="79" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                        </tr>
+                        <tr>
+                            <th>9</th>
+                            <td id="a9" class="80" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="b9" class="81" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="c9" class="82" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="d9" class="83" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="e9" class="84" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="f9" class="85" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="g9" class="86" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="h9" class="87" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="i9" class="88" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="j9" class="89" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                        </tr>
+                        <tr>
+                            <th>10</th>
+                            <td id="a10" class="90" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="b10" class="91" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="c10" class="92" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="d10" class="93" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="e10" class="94" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="f10" class="95" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="g10" class="96" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="h10" class="97" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="i10" class="98" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                            <td id="j10" class="99" onmousedown="tdMousePressed(this)" onmouseenter="tdMouseEnter(this)" onmouseup="tdMouseReleased(this)"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="col-sm-4 shipsLeft">
+                <p> You have left: <br/></p>
+                <span class="shipSize1"> 4 </span> <img src="battleship-assets/img/img_blackShip.png"> <br/> <br/>
+                <span class="shipSize2"> 3 </span>
+                <img src="battleship-assets/img/img_blackShip.png"><img src="battleship-assets/img/img_blackShip.png"> <br/><br/>
+                <span class="shipSize3"> 2 </span>
+                <img src="battleship-assets/img/img_blackShip.png"><img src="battleship-assets/img/img_blackShip.png"><img src="battleship-assets/img/img_blackShip.png"> <br/><br/>
+                <span class="shipSize4"> 1 </span> 
+                <img src="battleship-assets/img/img_blackShip.png"><img src="battleship-assets/img/img_blackShip.png"><img src="battleship-assets/img/img_blackShip.png"><img src="battleship-assets/img/img_blackShip.png"> <br/><br/>
+                <button type="button" class="btn" onclick="playerDoneWithSetup()" onmouseover="soundAlertBattle()"> Done! </button>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-sm-12 bottom ftr">
+                © Lexo 2020. All rights reserved by Aleksandra Bogicevic
+            </div>
+        </div>
+    </div>
+</body>
+</html>
