@@ -428,6 +428,7 @@ function initialiseBoardsForAttackWithZeros(){
 }
 
 function switchTurn(){
+    //wait(3000);
     if(turn ==1)
         turn = 2;
     else
@@ -457,14 +458,22 @@ function loadBoardOnMove(){
             idName = idName.concat("onMove");
             field = document.getElementById(idName);
             if (turn == 1){
-                if(player1board[i][j] == 1){
+                if((player1board[i][j] == 1) && (player2guessing[i][j] != 1)){
                     field.innerHTML = "<img src='battleship-assets/img/img_blackShip.png' class='imgResp'>";
+                }else if((player1board[i][j] == 1) && (player2guessing[i][j] == 1)){
+                    field.innerHTML = "<img src='battleship-assets/img/img_blackShipHit.png' class='imgResp'>";
+                }else if((player1board[i][j] == 0) && (player2guessing[i][j] == -1)){
+                    field.innerHTML = "<img src='battleship-assets/img/img_missed.png' class='imgResp'>";
                 }else{
                     field.innerHTML = "";
                 }
             }else{
-                if(player2board[i][j] == 1){
+                if((player2board[i][j] == 1) && (player1guessing[i][j] != 1)){
                     field.innerHTML = "<img src='battleship-assets/img/img_blackShip.png' class='imgResp'>";
+                }else if((player2board[i][j] == 1) && (player1guessing[i][j] == 1)){
+                    field.innerHTML = "<img src='battleship-assets/img/img_blackShipHit.png' class='imgResp'>";
+                }else if((player2board[i][j] == 0) && (player1guessing[i][j] == -1)){
+                    field.innerHTML = "<img src='battleship-assets/img/img_missed.png' class='imgResp'>";
                 }else{
                     field.innerHTML = "";
                 }
@@ -496,11 +505,9 @@ function loadOponentsBoard(){
             idName = idName.concat(col);
             field = document.getElementById(idName);
             if (turn == 1){
-                //if((player2board[i][j] == 1) && (player1guessing[i][j] == 1))
                 if(player1guessing[i][j] == 1){
                     field.innerHTML = "<img src='battleship-assets/img/img_blackShipHit.png' class='imgResp'>";
                 }
-                //else if((player2board[i][j] == 0) && (player1guessing[i][j] == -1))
                 else if(player1guessing[i][j] == -1){
                     field.innerHTML = "<img src='battleship-assets/img/img_missed.png' class='imgResp'>";
                 }else if (player1guessing[i][j] == 0){
@@ -511,7 +518,7 @@ function loadOponentsBoard(){
                     field.innerHTML = "<img src='battleship-assets/img/img_blackShipHit.png' class='imgResp'>";
                 }else if(player2guessing[i][j] == -1){
                     field.innerHTML = "<img src='battleship-assets/img/img_missed.png' class='imgResp'>";
-                }else if(player1guessing[i][j] == 0){
+                }else if(player2guessing[i][j] == 0){
                     field.innerHTML = "";
                 }
             }
@@ -520,6 +527,7 @@ function loadOponentsBoard(){
 }
 
 function oponentAttacked(inputID){
+    var missed = 0;
     var inputField = document.getElementById(inputID);
     var fieldId = inputID;
     //id is "oponentXX", where XX is row and col in matrix, so we need to get row and col
@@ -535,6 +543,7 @@ function oponentAttacked(inputID){
             player1guessing[row][col] = -1;
             inputField.innerHTML = "<img src='battleship-assets/img/img_missed.png' class='imgResp'>";
             soundAlertMissed();
+            missed = 1;
         }
     }else{
         if (player1board[row][col] == 1){
@@ -545,8 +554,20 @@ function oponentAttacked(inputID){
             player2guessing[row][col] = -1;
             inputField.innerHTML = "<img src='battleship-assets/img/img_missed.png' class='imgResp'>";
             soundAlertMissed();
+            missed = 1;
         }
     }
-    
-   //switchTurn();
+    //wait few seconds before switching, so player can see what he did
+    if(missed){
+        switchTurn();
+    }
 }
+
+function wait(ms){
+    var start = new Date().getTime();
+    var end = start;
+    while(end < start + ms) {
+        loadOponentsBoard();
+      end = new Date().getTime();
+   }
+ }
