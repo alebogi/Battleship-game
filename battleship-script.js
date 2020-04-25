@@ -30,6 +30,8 @@ var ship1 = 4;
 var ship2 = 3;
 var ship3 = 2;
 var ship4 = 1;
+//number of all places with ships: 4*1 + 3*2 + 2*3 + 1*4
+var shipsNumber = 20;
 
 //----------------------- welcome ---------------------
 
@@ -428,7 +430,6 @@ function initialiseBoardsForAttackWithZeros(){
 }
 
 function switchTurn(){
-    //wait(3000);
     if(turn ==1)
         turn = 2;
     else
@@ -527,6 +528,7 @@ function loadOponentsBoard(){
 }
 
 function oponentAttacked(inputID){
+    var score;
     var missed = 0;
     var inputField = document.getElementById(inputID);
     var fieldId = inputID;
@@ -536,38 +538,65 @@ function oponentAttacked(inputID){
 
     if(turn == 1){
         if (player2board[row][col] == 1){
-            player1guessing[row][col] = 1;
+            if (player1guessing[row][col] == 0){
+                player1guessing[row][col] = 1;
             inputField.innerHTML = "<img src='battleship-assets/img/img_blackShipHit.png' class='imgResp'>";
             soundAlertHit();
+            //we should update score
+            score = document.getElementById("scoreP1");
+            score.innerHTML++;
+            //check if we have a winner
+            setTimeout(isItOver, 50);
+            }
         } else{
-            player1guessing[row][col] = -1;
-            inputField.innerHTML = "<img src='battleship-assets/img/img_missed.png' class='imgResp'>";
-            soundAlertMissed();
-            missed = 1;
+            if (player1guessing[row][col] == 0){
+                player1guessing[row][col] = -1;
+                inputField.innerHTML = "<img src='battleship-assets/img/img_missed.png' class='imgResp'>";
+                soundAlertMissed();
+                missed = 1;
+            }
         }
     }else{
         if (player1board[row][col] == 1){
-            player2guessing[row][col] = 1;
-            inputField.innerHTML = "<img src='battleship-assets/img/img_blackShipHit.png' class='imgResp'>";
-            soundAlertHit();
+            if (player2guessing[row][col] == 0){
+                player2guessing[row][col] = 1;
+                inputField.innerHTML = "<img src='battleship-assets/img/img_blackShipHit.png' class='imgResp'>";
+                soundAlertHit();
+                //we should update score
+                score = document.getElementById("scoreP2");
+                score.innerHTML++;
+                //check if we have a winner
+                setTimeout(isItOver, 50);
+            } 
         } else{
-            player2guessing[row][col] = -1;
-            inputField.innerHTML = "<img src='battleship-assets/img/img_missed.png' class='imgResp'>";
-            soundAlertMissed();
-            missed = 1;
+            if (player2guessing[row][col] == 0){
+                player2guessing[row][col] = -1;
+                inputField.innerHTML = "<img src='battleship-assets/img/img_missed.png' class='imgResp'>";
+                soundAlertMissed();
+                missed = 1;
+            }
         }
     }
+
     //wait few seconds before switching, so player can see what he did
     if(missed){
-        switchTurn();
+        setTimeout(switchTurn, 100);
     }
 }
 
-function wait(ms){
-    var start = new Date().getTime();
-    var end = start;
-    while(end < start + ms) {
-        loadOponentsBoard();
-      end = new Date().getTime();
-   }
- }
+function isItOver(){
+    var p1= parseInt(document.getElementById("scoreP1").innerText);
+    var p2 = parseInt(document.getElementById("scoreP2").innerText);
+    var winner = "";
+    if (p1 == null || p2 == null)
+        return;
+    if (p1 == shipsNumber){
+        winner = player1name;
+    }else if (p2 == shipsNumber){
+        winner = player2name;
+    }else   
+        return;
+
+    alert("GAME OVER! The winner is " + winner);
+    document.location.href='battleship-welcome.html';
+}
