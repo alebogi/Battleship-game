@@ -1,13 +1,13 @@
 //number 10 used in for loops is the size of the board (10x10)
 //Sound from Zapsplat.com
 
+//player names, entered at welcome page
 var player1name;
 var player2name;
 
 //boards that players set at begining of the game
 var board1 = new Array();
 var board2 = new Array();
-
 //matrix, 0 -> empty, 1-> ship
 var player1board = [];
 var player2board = [];
@@ -15,7 +15,14 @@ var player2board = [];
 //1 -> player1, 2 -> player2
 var turn = 1; 
 
+/**
+ * initialised -> 0
+ * if player missed -> -1
+ * if player guessed -> 1
+ */
+//player1 attacking player2
 var player1guessing = [];
+//player2 attacking player1
 var player2guessing = [];
 
 //counter of ships
@@ -409,6 +416,17 @@ function resetBoard(){
 //-------------------------- game --------------
 var boardsLoaded = 0;
 
+function initialiseBoardsForAttackWithZeros(){ 
+    for(var i = 0; i < 10; i++) {
+        player1guessing[i] = [];
+        player2guessing[i] = [];
+        for(var j = 0; j < 10; j++) {
+            player1guessing[i][j] = 0;
+            player2guessing[i][j] = 0;
+        }
+    }
+}
+
 function switchTurn(){
     if(turn ==1)
         turn = 2;
@@ -423,6 +441,7 @@ function loadBoardOnMove(){
     if(!boardsLoaded){
         boardsLoaded = 1;
         getBoards();
+        initialiseBoardsForAttackWithZeros();
         field = document.getElementById("scoreP1name");
         field.innerHTML = player1name;
         field = document.getElementById("scoreP2name");
@@ -468,11 +487,66 @@ function loadBoardOnMove(){
 }
 
 function loadOponentsBoard(){
-
+    for(var i = 0; i <10; i++){
+        for(var j = 0; j < 10; j++){
+            idName = "oponent"
+            row = i.toString();
+            col = j.toString();
+            idName = idName.concat(row);
+            idName = idName.concat(col);
+            field = document.getElementById(idName);
+            if (turn == 1){
+                //if((player2board[i][j] == 1) && (player1guessing[i][j] == 1))
+                if(player1guessing[i][j] == 1){
+                    field.innerHTML = "<img src='battleship-assets/img/img_blackShipHit.png' class='imgResp'>";
+                }
+                //else if((player2board[i][j] == 0) && (player1guessing[i][j] == -1))
+                else if(player1guessing[i][j] == -1){
+                    field.innerHTML = "<img src='battleship-assets/img/img_missed.png' class='imgResp'>";
+                }else if (player1guessing[i][j] == 0){
+                    field.innerHTML = "";
+                }
+            }else{
+                if(player2guessing[i][j] == 1){
+                    field.innerHTML = "<img src='battleship-assets/img/img_blackShipHit.png' class='imgResp'>";
+                }else if(player2guessing[i][j] == -1){
+                    field.innerHTML = "<img src='battleship-assets/img/img_missed.png' class='imgResp'>";
+                }else if(player1guessing[i][j] == 0){
+                    field.innerHTML = "";
+                }
+            }
+        }
+    }
 }
 
-function oponentAttacked(input){
+function oponentAttacked(inputID){
+    var inputField = document.getElementById(inputID);
+    var fieldId = inputID;
+    //id is "oponentXX", where XX is row and col in matrix, so we need to get row and col
+    var row = parseInt(fieldId.charAt(7));
+    var col = parseInt(fieldId.charAt(8));
 
+    if(turn == 1){
+        if (player2board[row][col] == 1){
+            player1guessing[row][col] = 1;
+            inputField.innerHTML = "<img src='battleship-assets/img/img_blackShipHit.png' class='imgResp'>";
+            soundAlertHit();
+        } else{
+            player1guessing[row][col] = -1;
+            inputField.innerHTML = "<img src='battleship-assets/img/img_missed.png' class='imgResp'>";
+            soundAlertMissed();
+        }
+    }else{
+        if (player1board[row][col] == 1){
+            player2guessing[row][col] = 1;
+            inputField.innerHTML = "<img src='battleship-assets/img/img_blackShipHit.png' class='imgResp'>";
+            soundAlertHit();
+        } else{
+            player2guessing[row][col] = -1;
+            inputField.innerHTML = "<img src='battleship-assets/img/img_missed.png' class='imgResp'>";
+            soundAlertMissed();
+        }
+    }
     
-    switchTurn();
+   //switchTurn();
 }
