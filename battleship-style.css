@@ -92,4 +92,31 @@ td:hover{
           -ms-user-select: none; /* Internet Explorer/Edge */
               user-select: none; /* Non-prefixed version, currently
                                     supported by Chrome, Opera and Firefox */
-  }
+}
+
+.headerGame{
+    font-family: fantasy;
+    font-style: oblique;
+    margin-top: 25px;
+    text-align: center;
+    font-size: 50px;
+}
+
+.turn{
+    text-align: left;
+    margin-top: 10px;
+    font-weight: bolder;
+    font-size: 20px;
+}
+
+.scoreCol{
+    text-align: center;
+    margin-top: 10px;
+    font-weight: bolder;
+    font-size: 20px;
+}
+
+.imgResp {
+    width: 100%;
+    height: auto;
+}

@@ -9,10 +9,326 @@
     <link rel="shortcut icon" href="battleship-assets/img/icon_wheel.ico">
     <title>Battleship - game</title>
 </head>
-<body class="bg" onload="getBoards()">
+<body class="bg" onload="loadBoardOnMove()">
     <div class="container-fluid">
-        pocela igrica 
-
+        <div class="row">
+            <div class="col-sm-4 col-lg-4">
+                <p id="turn" class="turn">Player on move...</p>
+            </div>
+            <div class="col-sm-4 col-lg-4 text-center">
+                <h1 class="headerGame"> Battleship </h1>
+            </div>
+            <div class="col-sm-4 col-lg-4 scoreCol">
+                Score: <br/>
+                <span id="scoreP1name"> Player1 </span>
+                <span id="score"> 0 - 0 </span>
+                <span id="scoreP2name">Player2</span>
+            </div>
+        </div>
+        <div class="row  text-center">
+            <div class="col-sm-12 col-lg-6 ">
+                <h2 class="playerOnMove">Player on move</h2>
+            </div>
+            <div class="col-sm-12 col-lg-6">
+                <h2 class="playerOponent">Oponents board</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 col-lg-6 playerOnMoveTable">
+                <table class="board text-center noselect">
+                    <tr>
+                        <th></th>
+                        <th>A</th>
+                        <th>B</th>
+                        <th>C</th>
+                        <th>D</th>
+                        <th>E</th>
+                        <th>F</th>
+                        <th>G</th>
+                        <th>H</th>
+                        <th>I</th>
+                        <th>J</th>
+                    </tr>
+                    <tr>
+                        <th>1</th>
+                        <td id="00onMove"></td>
+                        <td id="01onMove" ></td>
+                        <td id="02onMove"></td>
+                        <td id="03onMove"></td>
+                        <td id="04onMove"></td>
+                        <td id="05onMove"></td>
+                        <td id="06onMove"></td>
+                        <td id="07onMove"></td>
+                        <td id="08onMove"></td>
+                        <td id="09onMove"></td>
+                    </tr>
+                    <tr>
+                        <th>2</th>
+                        <td id="10onMove"></td>
+                        <td id="11onMove"></td>
+                        <td id="12onMove"></td>
+                        <td id="13onMove"></td>
+                        <td id="14onMove"></td>
+                        <td id="15onMove"></td>
+                        <td id="16onMove"></td>
+                        <td id="17onMove"></td>
+                        <td id="18onMove"></td>
+                        <td id="19onMove"></td>
+                    </tr>
+                    <tr>
+                        <th>3</th>
+                        <td id="20onMove"></td>
+                        <td id="21onMove"></td>
+                        <td id="22onMove"></td>
+                        <td id="23onMove"></td>
+                        <td id="24onMove"></td>
+                        <td id="25onMove"></td>
+                        <td id="26onMove"></td>
+                        <td id="27onMove"></td>
+                        <td id="28onMove"></td>
+                        <td id="29onMove"></td>
+                    </tr>
+                    <tr>
+                        <th>4</th>
+                        <td id="30onMove"></td>
+                        <td id="31onMove"></td>
+                        <td id="32onMove"></td>
+                        <td id="33onMove"></td>
+                        <td id="34onMove"></td>
+                        <td id="35onMove"></td>
+                        <td id="36onMove"></td>
+                        <td id="37onMove"></td>
+                        <td id="38onMove"></td>
+                        <td id="39onMove"></td>
+                    </tr>
+                    <tr>
+                        <th>5</th>
+                        <td id="40onMove"></td>
+                        <td id="41onMove"></td>
+                        <td id="42onMove"></td>
+                        <td id="43onMove"></td>
+                        <td id="44onMove"></td>
+                        <td id="45onMove"></td>
+                        <td id="46onMove"></td>
+                        <td id="47onMove"></td>
+                        <td id="48onMove"></td>
+                        <td id="49onMove"></td>
+                    </tr>
+                    <tr>
+                        <th>6</th>
+                        <td id="50onMove"></td>
+                        <td id="51onMove"></td>
+                        <td id="52onMove"></td>
+                        <td id="53onMove"></td>
+                        <td id="54onMove"></td>
+                        <td id="55onMove"></td>
+                        <td id="56onMove"></td>
+                        <td id="57onMove"></td>
+                        <td id="58onMove"></td>
+                        <td id="59onMove"></td>
+                    </tr>
+                    <tr>
+                        <th>7</th>
+                        <td id="60onMove"></td>
+                        <td id="61onMove"></td>
+                        <td id="62onMove"></td>
+                        <td id="63onMove"></td>
+                        <td id="64onMove"></td>
+                        <td id="65onMove"></td>
+                        <td id="66onMove"></td>
+                        <td id="67onMove"></td>
+                        <td id="68onMove"></td>
+                        <td id="69onMove"></td>
+                    </tr>
+                    <tr>
+                        <th>8</th>
+                        <td id="70onMove"></td>
+                        <td id="71onMove"></td>
+                        <td id="72onMove"></td>
+                        <td id="73onMove"></td>
+                        <td id="74onMove"></td>
+                        <td id="75onMove"></td>
+                        <td id="76onMove"></td>
+                        <td id="77onMove"></td>
+                        <td id="78onMove"></td>
+                        <td id="79onMove"></td>
+                    </tr>
+                    <tr>
+                        <th>9</th>
+                        <td id="80onMove"></td>
+                        <td id="81onMove"></td>
+                        <td id="82onMove"></td>
+                        <td id="83onMove"></td>
+                        <td id="84onMove"></td>
+                        <td id="85onMove"></td>
+                        <td id="86onMove"></td>
+                        <td id="87onMove"></td>
+                        <td id="88onMove"></td>
+                        <td id="89onMove"></td>
+                    </tr>
+                    <tr>
+                        <th>10</th>
+                        <td id="90onMove"></td>
+                        <td id="91onMove"></td>
+                        <td id="92onMove"></td>
+                        <td id="93onMove"></td>
+                        <td id="94onMove"></td>
+                        <td id="95onMove"></td>
+                        <td id="96onMove"></td>
+                        <td id="97onMove"></td>
+                        <td id="98onMove"></td>
+                        <td id="99onMove"></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-sm-12 col-lg-6 playerOponentTable">
+                <table class="board text-center noselect">
+                    <tr>
+                        <th></th>
+                        <th>A</th>
+                        <th>B</th>
+                        <th>C</th>
+                        <th>D</th>
+                        <th>E</th>
+                        <th>F</th>
+                        <th>G</th>
+                        <th>H</th>
+                        <th>I</th>
+                        <th>J</th>
+                    </tr>
+                    <tr>
+                        <th>1</th>
+                        <td id="opontent00" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent01" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent02" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent03" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent04" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent05" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent06" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent07" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent08" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent09" onmouseup="oponentAttacked(this)"></td>
+                    </tr>
+                    <tr>
+                        <th>2</th>
+                        <td id="opontent10" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent11" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent12" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent13" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent14" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent15" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent16" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent17" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent18" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent19" onmouseup="oponentAttacked(this)"></td>
+                    </tr>
+                    <tr>
+                        <th>3</th>
+                        <td id="opontent20" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent21" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent22" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent23" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent24" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent25" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent26" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent27" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent28" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent29" onmouseup="oponentAttacked(this)"></td>
+                    </tr>
+                    <tr>
+                        <th>4</th>
+                        <td id="opontent30" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent31" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent32" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent33" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent34" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent35" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent36" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent37" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent38" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent39" onmouseup="oponentAttacked(this)"></td>
+                    </tr>
+                    <tr>
+                        <th>5</th>
+                        <td id="opontent40" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent41" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent42" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent43" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent44" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent45" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent46" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent47" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent48" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent49" onmouseup="oponentAttacked(this)"></td>
+                    </tr>
+                    <tr>
+                        <th>6</th>
+                        <td id="opontent50" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent51" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent52" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent53" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent54" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent55" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent56" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent57" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent58" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent59" onmouseup="oponentAttacked(this)"></td>
+                    </tr>
+                    <tr>
+                        <th>7</th>
+                        <td id="opontent60" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent61" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent62" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent63" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent64" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent65" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent66" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent67" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent68" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent69" onmouseup="oponentAttacked(this)"></td>
+                    </tr>
+                    <tr>
+                        <th>8</th>
+                        <td id="opontent70" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent71" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent72" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent73" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent74" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent75" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent76" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent77" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent78" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent79" onmouseup="oponentAttacked(this)"></td>
+                    </tr>
+                    <tr>
+                        <th>9</th>
+                        <td id="opontent80" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent81" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent82" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent83" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent84" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent85" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent86" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent87" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent88" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent89" onmouseup="oponentAttacked(this)"></td>
+                    </tr>
+                    <tr>
+                        <th>10</th>
+                        <td id="opontent90" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent91" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent92" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent93" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent94" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent95" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent96" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent97" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent98" onmouseup="oponentAttacked(this)"></td>
+                        <td id="opontent99" onmouseup="oponentAttacked(this)"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
 
         <div class="row">
             <div class="col-sm-12 bottom ftr">

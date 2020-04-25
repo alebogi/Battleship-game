@@ -1,3 +1,4 @@
+//number 10 used in for loops is the size of the board (10x10)
 //Sound from Zapsplat.com
 
 var player1name;
@@ -131,6 +132,7 @@ function playerDoneWithSetup(){
         alert("Battle!");
         resetBoard();
         document.location.href='battleship-game.html';
+        turn = 1;
     }
     
 }
@@ -352,7 +354,7 @@ function drawShips(size){
             board2.push(el);
             player2board[row][col] = 1;
         }
-       el.innerHTML = "<img src='battleship-assets/img/img_blackShip.png'>";
+       el.innerHTML = "<img src='battleship-assets/img/img_blackShip.png' class='imgResp'>";
     }
 }
 
@@ -382,6 +384,9 @@ function getBoards(){
             player2board[i][j] = parseInt(p2[i][j]);
         }
     }
+
+    player1name = localStorage.getItem("player1name");
+    player2name = localStorage.getItem("player2name");
 }
 
 function resetBoard(){
@@ -399,4 +404,75 @@ function resetBoard(){
     ship2 = 3;
     ship3 = 2;
     ship4 = 1;
+}
+
+//-------------------------- game --------------
+var boardsLoaded = 0;
+
+function switchTurn(){
+    if(turn ==1)
+        turn = 2;
+    else
+        turn = 1;
+    loadBoardOnMove();  
+    loadOponentsBoard();  
+}
+
+function loadBoardOnMove(){
+    var field;
+    if(!boardsLoaded){
+        boardsLoaded = 1;
+        getBoards();
+        field = document.getElementById("scoreP1name");
+        field.innerHTML = player1name;
+        field = document.getElementById("scoreP2name");
+        field.innerHTML = player2name;
+    }
+    var idName = "";
+    var row,col;
+    for(var i = 0; i <10; i++){
+        for(var j = 0; j < 10; j++){
+            row = i.toString();
+            col = j.toString();
+            idName = row.concat(col);
+            idName = idName.concat("onMove");
+            field = document.getElementById(idName);
+            if (turn == 1){
+                if(player1board[i][j] == 1){
+                    field.innerHTML = "<img src='battleship-assets/img/img_blackShip.png' class='imgResp'>";
+                }else{
+                    field.innerHTML = "";
+                }
+            }else{
+                if(player2board[i][j] == 1){
+                    field.innerHTML = "<img src='battleship-assets/img/img_blackShip.png' class='imgResp'>";
+                }else{
+                    field.innerHTML = "";
+                }
+            }
+        }
+    }
+
+    var txtField;
+    var txt="";
+    txtField = document.getElementById("turn");
+    if(turn == 1){
+        txt = txt.concat(player1name);
+        txt = txt.concat(" on move...");
+        txtField.innerText = txt;
+    }else{
+        txt = txt.concat(player2name);
+        txt = txt.concat(" on move...");
+        txtField.innerText = txt;
+    }
+}
+
+function loadOponentsBoard(){
+
+}
+
+function oponentAttacked(input){
+
+    
+    switchTurn();
 }
