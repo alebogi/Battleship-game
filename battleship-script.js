@@ -599,4 +599,5 @@ function isItOver(){
 
     alert("GAME OVER! The winner is " + winner);
     document.location.href='battleship-welcome.html';
+    localStorage.clear();
 }
