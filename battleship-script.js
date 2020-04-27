@@ -1,5 +1,5 @@
 //number 10 used in for loops is the size of the board (10x10)
-//Sound from Zapsplat.com
+//Sound from Zapsplat.com and Freesound.org
 
 //player names, entered at welcome page
 var player1name;
