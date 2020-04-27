@@ -88,6 +88,11 @@ function soundAlertHit(){
     audio.play();
 }
 
+function soundAlertGameOver(){
+    var audio = new Audio("battleship-assets/sounds/game_over.mp3");
+    audio.play();
+}
+
 function initialiseBoardsWithZeros(num){ 
     if (num == 1){
         for(var i = 0; i < 10; i++) {
@@ -545,6 +550,8 @@ function oponentAttacked(inputID){
             //we should update score
             score = document.getElementById("scoreP1");
             score.innerHTML++;
+            //alert if ship sank
+            checkIfShipSank(row, col);
             //check if we have a winner
             setTimeout(isItOver, 50);
             }
@@ -565,6 +572,8 @@ function oponentAttacked(inputID){
                 //we should update score
                 score = document.getElementById("scoreP2");
                 score.innerHTML++;
+                //alert if ship sank
+                checkIfShipSank(row, col);
                 //check if we have a winner
                 setTimeout(isItOver, 50);
             } 
@@ -596,8 +605,209 @@ function isItOver(){
         winner = player2name;
     }else   
         return;
-
+    
+    soundAlertGameOver();
     alert("GAME OVER! The winner is " + winner);
     document.location.href='battleship-welcome.html';
     localStorage.clear();
+}
+
+//args: row and col of field that was hit
+function checkIfShipSank(row, col){
+    var result = false;
+
+    var cnt = 1; //cnt of ship size, at begining its == 1 beacuse thats the field we hit
+    var c = col, r = row; //tmp col and row
+    var lookLeft = 1, lookRight = 1, lookUp = 1, lookDown = 1;
+    if (turn == 1){
+        //we check fields left from hit field
+        if(col > 0){
+            while((lookLeft) && (c > 0)){
+                c--;
+                if(player1guessing[row][c] == 1){
+                    //there is ship on left field and that field was hit
+                    cnt++;
+                    continue;
+                }else if (player1guessing[row][c] == -1){
+                    //there are no parts of ship on the left side and we can stop checking
+                    lookLeft = 0;
+                }else if((player1guessing[row][c] == 0) && (player2board[row][c] == 1)){
+                    //there are parts of ship on the left but player hasnt hit it yet, so we can return
+                    return;
+                }else if((player1guessing[row][c] == 0) && (player2board[row][c] == 0)){
+                    //there are no parts of ship on the left so we can stop searching
+                    lookLeft = 0;
+                }
+            }
+        }
+        //we check fields right from hit field
+        c = col; r =row; //we reset tmp col and row
+        if(col < 9){
+            while((lookRight) && (c < 9)){
+                c++;
+                if(player1guessing[row][c] == 1){
+                    //there is ship on right field and that field was hit
+                    cnt++;
+                    continue;
+                }else if (player1guessing[row][c] == -1){
+                    //there are no parts of ship on the right side and we can stop checking
+                    lookRight = 0;
+                }else if((player1guessing[row][c] == 0) && (player2board[row][c] == 1)){
+                    //there are parts of ship on the right but player hasnt hit it yet, so we can return
+                    return;
+                }else if((player1guessing[row][c] == 0) && (player2board[row][c] == 0)){
+                    //there are no parts of ship on the right so we can stop searching
+                    lookRight = 0;
+                }
+            }
+        }
+
+        //if we found something on left/right, we can stop searching, because ship can be only horizontaly or verticaly placed
+        if (cnt > 1){
+            alert("Congrats! You sank ship sized of " + cnt + " fields!");
+            return;
+        }
+
+        //we check fields above hit field
+        c = col; r = row;
+        if (row > 0){
+            while((lookUp) && (r > 0)){
+                r--;
+                if(player1guessing[r][col] == 1){
+                    //there is ship above field and that field was hit
+                    cnt++;
+                    continue;
+                }else if (player1guessing[r][col] == -1){
+                    //there are no parts of ship above and we can stop checking
+                    lookUp = 0;
+                }else if((player1guessing[r][col] == 0) && (player2board[r][col] == 1)){
+                    //there are parts of ship above but player hasnt hit it yet, so we can return
+                    return;
+                }else if((player1guessing[r][col] == 0) && (player2board[r][col] == 0)){
+                    //there are no parts of ship above so we can stop searching
+                    lookUp = 0;
+                }
+            }
+        }
+        //we check fields under hit field
+        c = col; r = row;
+        if (row < 9){
+            while((lookDown) && (r < 9)){
+                r++;
+                if(player1guessing[r][col] == 1){
+                    //there is ship under field and that field was hit
+                    cnt++;
+                    continue;
+                }else if (player1guessing[r][col] == -1){
+                    //there are no parts of ship under and we can stop checking
+                    lookDown = 0;
+                }else if((player1guessing[r][col] == 0) && (player2board[r][col] == 1)){
+                    //there are parts of ship under but player hasnt hit it yet, so we can return
+                    return;
+                }else if((player1guessing[r][col] == 0) && (player2board[r][col] == 0)){
+                    //there are no parts of ship under so we can stop searching
+                    lookDown = 0;
+                }
+            }
+        }
+        alert("Congrats! You sank ship sized of " + cnt + " fields!");
+        return;
+    }else if (turn == 2){
+        //we check fields left from hit field
+        if(col > 0){
+            while((lookLeft) && (c > 0)){
+                c--;
+                if(player2guessing[row][c] == 1){
+                    //there is ship on left field and that field was hit
+                    cnt++;
+                    continue;
+                }else if (player2guessing[row][c] == -1){
+                    //there are no parts of ship on the left side and we can stop checking
+                    lookLeft = 0;
+                }else if((player2guessing[row][c] == 0) && (player1board[row][c] == 1)){
+                    //there are parts of ship on the left but player hasnt hit it yet, so we can return
+                    return;
+                }else if((player2guessing[row][c] == 0) && (player1board[row][c] == 0)){
+                    //there are no parts of ship on the left so we can stop searching
+                    lookLeft = 0;
+                }
+            }
+        }
+        //we check fields right from hit field
+        c = col; r =row; //we reset tmp col and row
+        if(col < 9){
+            while((lookRight) && (c < 9)){
+                c++;
+                if(player2guessing[row][c] == 1){
+                    //there is ship on right field and that field was hit
+                    cnt++;
+                    continue;
+                }else if (player2guessing[row][c] == -1){
+                    //there are no parts of ship on the right side and we can stop checking
+                    lookRight = 0;
+                }else if((player2guessing[row][c] == 0) && (player1board[row][c] == 1)){
+                    //there are parts of ship on the right but player hasnt hit it yet, so we can return
+                    return;
+                }else if((player2guessing[row][c] == 0) && (player1board[row][c] == 0)){
+                    //there are no parts of ship on the right so we can stop searching
+                    lookRight = 0;
+                }
+            }
+        }
+
+        //if we found something on left/right, we can stop searching, because ship can be only horizontaly or verticaly placed
+        if (cnt > 1){
+            alert("Congrats! You sank ship sized of " + cnt + " fields!");
+            return;
+        }
+
+        //we check fields above hit field
+        c = col; r = row;
+        if (row > 0){
+            while((lookUp) && (r > 0)){
+                r--;
+                if(player2guessing[r][col] == 1){
+                    //there is ship above field and that field was hit
+                    cnt++;
+                    continue;
+                }else if (player2guessing[r][col] == -1){
+                    //there are no parts of ship above and we can stop checking
+                    lookUp = 0;
+                }else if((player2guessing[r][col] == 0) && (player1board[r][col] == 1)){
+                    //there are parts of ship above but player hasnt hit it yet, so we can return
+                    return;
+                }else if((player2guessing[r][col] == 0) && (player1board[r][col] == 0)){
+                    //there are no parts of ship above so we can stop searching
+                    lookUp = 0;
+                }
+            }
+        }
+        //we check fields under hit field
+        c = col; r = row;
+        if (row < 9){
+            while((lookDown) && (r < 9)){
+                r++;
+                if(player2guessing[r][col] == 1){
+                    //there is ship under field and that field was hit
+                    cnt++;
+                    continue;
+                }else if (player2guessing[r][col] == -1){
+                    //there are no parts of ship under and we can stop checking
+                    lookDown = 0;
+                }else if((player2guessing[r][col] == 0) && (player1board[r][col] == 1)){
+                    //there are parts of ship under but player hasnt hit it yet, so we can return
+                    return;
+                }else if((player2guessing[r][col] == 0) && (player1board[r][col] == 0)){
+                    //there are no parts of ship under so we can stop searching
+                    lookDown = 0;
+                }
+            }
+        }
+        alert("Congrats! You sank ship sized of " + cnt + " fields!");
+        return;
+    }
+    
+
+
+    return result;
 }
